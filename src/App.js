@@ -3,6 +3,8 @@ import Container from '@mui/material/Container';
 
 import Header from './Header';
 import Content from './Content';
+import SubmissionToast from './components/SubmissionToast';
+import './my-styles.css'
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
       <Container>
         <Content />
       </Container>
+      <SubmissionToast />
     </>
   );
 }
