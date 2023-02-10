@@ -22,6 +22,7 @@ export default function LikedSubmissionList() {
 
   // TODO: Improvement, instead of using a pull mechanism to retrieve data instead implement a push mechanism to refresh liked submissions list
   // ie. SSE, websocket or a data feed (such as Kafka, RabbitMQ)
+  // possible optimization to load list upon app startup and after successful 'liked' submission?
   const retrieveLikedFormSubmissions = () => {
     try {
       fetchLikedFormSubmissions()

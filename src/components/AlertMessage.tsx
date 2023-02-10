@@ -3,12 +3,18 @@ import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { IAlertMessage } from '../models/alert-message.model';
+import {
+  ALERT_TOASTER_VERTICAL_ALIGN,
+  ALERT_TOASTER_HORIZONTAL_ALIGN,
+  ALERT_TOASTER_AUTO_DISMISS_DURATION,
+  ALERT_TOASTER_MESSAGE_ELEVATION
+} from '../constants';
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
   ref,
 ) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  return <MuiAlert elevation={ALERT_TOASTER_MESSAGE_ELEVATION} ref={ref} variant="filled" {...props} />;
 });
 
 export interface IOwnProps {
@@ -43,8 +49,10 @@ export default function AlertMessage({ alert }: IOwnProps) {
     <Stack spacing={2} sx={{ width: '100%' }}>
       <Snackbar 
         open={open} 
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-        autoHideDuration={3000}
+        anchorOrigin={{ 
+          vertical: ALERT_TOASTER_VERTICAL_ALIGN, 
+          horizontal: ALERT_TOASTER_HORIZONTAL_ALIGN }}
+        autoHideDuration={ALERT_TOASTER_AUTO_DISMISS_DURATION}
         onClose={handleClose}>
         <Alert onClose={handleClose} severity={alert?.severity ?? 'success'} sx={{ width: '100%' }}>
             {alertMessage}

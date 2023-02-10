@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
@@ -6,7 +6,7 @@ import { onMessage, saveLikedFormSubmission } from '../service/mockServer';
 import { IFormSubmission } from '../models/form-submission.model';
 import AlertMessage from './AlertMessage';
 import { IAlertMessage } from '../models/alert-message.model';
-import { SnackbarProvider, useSnackbar, SnackbarKey } from 'notistack';
+import { useSnackbar, SnackbarKey } from 'notistack';
 
 export default function SubmissionToast() {
   const [formSubmissions, setFormSubmissions] = useState<IFormSubmission[]>([]);
@@ -94,11 +94,9 @@ export default function SubmissionToast() {
 
   return (
     <>
-        <SnackbarProvider anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}>
         <AlertMessage
             alert={alertMessage}
         />
-        </SnackbarProvider>
     </>
   );
 }
